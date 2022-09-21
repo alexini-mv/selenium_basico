@@ -17,7 +17,7 @@ $ conda install selenium
 
 Adicionalmente, Selenium requiere un *driver* como interface para interactuar con el navegador especifico que elijamos para trabajar. 
 
-Actualmente hay soporte para: Chrome, Chromium, Firefox, Edge, Safari.
+Actualmente hay soporte para: Chrome, Chromium, Firefox, Edge, Safari. La documentación para descargar el driver se puede consultar [aquí](https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/).
 
 Instalamos el manejador de driver como sigue:
 
@@ -42,9 +42,16 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 #### 1.- Instanciamos el ***driver*** para nuestro navegador en particular
 
+1.1.- Usando el manejador de webdriver para python, que descarga la mejor versión para el navegador que tengamos instalado
 
 ```python
 service = ChromeService(ChromeDriverManager().install())
+```
+
+1.2.- Descargando el archivo driver particular manualmente y tenerlo en un directorio conocido
+
+```python
+service = ChromeService(executable_path="./chromedriver")
 ```
 
 Agregamos algunas opciones al abrir el navegador
